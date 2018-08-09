@@ -1,16 +1,18 @@
-<div class="bs-example bs-example-standalone" data-example-id="dismissible-alert-js">
+<!-- <div class="bs-example bs-example-standalone" data-example-id="dismissible-alert-js">
    <div class="alert alert-warning alert-dismissible fade in" role="alert">
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
        <span aria-hidden="true">×</span>
-     </button><strong style="align:center;"><a href="/chat">채팅방 OPEN !</a></strong> 
+     </button><strong style="align:center;"><a href="/chat">채팅방 OPEN !</a></strong>
    </div>
-</div>
-<table id="lec_table" class="table table-bordered tablesorter">
+</div> -->
+
+
+<table id="lec_table" class="table tablesorter">
   <thead>
     <tr>
       <td>교과목명</td>
       <td class="lec_time">강의시간</td>
-      <td>교수님</td>
+      <td class="professor">교수님</td>
       <td>인원</td>
       <td>정원</td>
     </tr>
@@ -19,7 +21,7 @@
     <% @subj.each do |node| %>
       <% if node.xpath('tlsn_limit_count').text.strip != '0' && node.xpath('tlsn_count').text.strip < node.xpath('tlsn_limit_count').text.strip && node.xpath('tlsn_limit_count').text.strip != '' && node.xpath('day_night_nm').text.strip != '계약'%>
         <% if node.xpath('tlsn_limit_count').text.strip.to_i - node.xpath('tlsn_count').text.strip.to_i > 3 and  node.xpath('tlsn_limit_count').text.strip.to_i - node.xpath('tlsn_count').text.strip.to_i <8 %>
-          <tr class="warning table_row" data-toggle="tooltip" title="<%=node.xpath('class_nm').text.strip%>">
+          <tr class="cwarning table_row" data-toggle="tooltip" title="<%=node.xpath('class_nm').text.strip%>">
             <td><%= node.xpath('subject_nm').text.strip %></td>
             <td class="lec_time"><%= node.xpath('class_nm').text.strip %></td>
             <td><%= node.xpath('prof_nm').text.strip %></td>
@@ -27,7 +29,7 @@
             <td><%= node.xpath('tlsn_limit_count').text.strip %></td>
           </tr>
         <% elsif node.xpath('tlsn_limit_count').text.strip.to_i - node.xpath('tlsn_count').text.strip.to_i > 0 and  node.xpath('tlsn_limit_count').text.strip.to_i - node.xpath('tlsn_count').text.strip.to_i < 4%>
-          <tr class="danger table_row" data-toggle="tooltip" title="<%=node.xpath('class_nm').text.strip%>">
+          <tr class="cdanger table_row" data-toggle="tooltip" title="<%=node.xpath('class_nm').text.strip%>">
             <td><%= node.xpath('subject_nm').text.strip %></td>
             <td class="lec_time"><%= node.xpath('class_nm').text.strip %></td>
             <td><%= node.xpath('prof_nm').text.strip %></td>

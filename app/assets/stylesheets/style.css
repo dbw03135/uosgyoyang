@@ -1,3 +1,50 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand{
+  font-family: 'Nanum Pen Script', cursive;
+  font-weight: 500;
+  font-size: 29px;
+  color: #2d2e30 !important;
+}
+
+.navbar {
+  background: none;
+  border-radius: 0;
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #a8a9ad;
+}
+
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a {
+  background: none;
+  box-shadow: none;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background: none;
+  color: #2d2e30;
+}
+
+
+
 @media (max-width: 480px) {
     .nav-tabs > li {
         float:none;
@@ -6,6 +53,9 @@
 @media only screen and (max-width: 900px) {
     .lec_time{
         display: none;
+    }
+    .professor {
+      width: 70px;
     }
     .navbar-brand {
       transform: translateX(-50%);
@@ -34,9 +84,25 @@
 }
 
 #lec_table thead{
-    background-color: rgba(34, 36, 38, 0.1);
-    font-weight: bold;
+    background-color: #f5f8f8;
+    cursor: pointer;
+    font-weight: 500;
 }
+
+#lec_table thead td {
+  border-bottom: 1px solid rgba(34,36,38,.1) !important;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.cwarning {
+  /* background-color: #fff4f4; */
+
+}
+.cdanger {
+  /* background-color: #ffd8d8; */
+}
+
 
 #messages{
   padding-left: 10px;

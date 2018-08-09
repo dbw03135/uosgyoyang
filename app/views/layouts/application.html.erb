@@ -24,13 +24,6 @@
       ga('send', 'pageview');
 
     </script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-7900071563760427",
-              enable_page_level_ads: true
-         });
-    </script>
   </head>
 
   <body>
@@ -56,6 +49,10 @@
             <li><a href="/major">전공을잡자</a></li>
             <li><a href="/chat">동물의숲</a></li>
           </ul>
+          <script>
+            $('li.active').removeClass('active');
+            $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+          </script>
           <ul class="nav navbar-nav navbar-right hidden-xs">
             <li>
               <a href="" onClick="refreshTables();"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
@@ -67,10 +64,14 @@
 
 
     <div id="main_table" class="container">
+      <a href="https://www.instagram.com/moona_mycurator/" onclick="trackOutboundLink('https://www.instagram.com/moona_mycurator/'); return false;"  target="_blank" style="display: block; width:100%;margin-bottom: 20px;">
+        <img class="banner-pc" style="width:100%;"src="<%=image_url("banner_pc.jpg")%>">
+      </a>
       <%= yield %>
     </div>
     <div style="text-align:center;">
-      <h3><img src="<%=image_url 'likelion'%>" width="120" height="30">    X   김선형</h3>
+      <!-- <h3><img src="<%#=image_url 'likelion'%>" width="120" height="30">    X   김선형</h3> -->
+      <h3>김선형</h3>
       <h5>dbw03135@gmail.com</h5>
     </div>
     <script>
@@ -81,10 +82,10 @@
         $(".ref").fadeOut();
         $(".ref").load("/");
       }
+
       $(document).ready(function() {
-        $('li.active').removeClass('active');
-        $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
       });
+
       $(".nav a").on("click", function(){
          $(".nav").find(".active").removeClass("active");
          $(this).parent().addClass("active");
@@ -107,6 +108,19 @@
           });
 
        });
+
+      /**
+      * Function that tracks a click on an outbound link in Analytics.
+      * This function takes a valid URL string as an argument, and uses that URL string
+      * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+      * using 'navigator.sendBeacon' in browser that support it.
+      */
+      var trackOutboundLink = function(url) {
+         ga('send', 'event', 'outbound', 'click', url, {
+           'transport': 'beacon',
+           'hitCallback': function(){document.location = url;}
+         });
+      }
     </script>
   </body>
 </html>
