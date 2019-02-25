@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   # mount ActionCable.server => '/cable'
 
+  root 'home#index'
   get 'chat' => 'rooms#show'
 
   get 'home/index'
-  root 'home#index'
   get '/all' => 'home#all'
   get '/mungwa' => 'home#mungwa'
   get '/major' => 'home#major'
