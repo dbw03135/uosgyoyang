@@ -64,6 +64,12 @@
 
 
     <div id="main_table" class="container">
+      <div class="visible-sm-block" style="margin-bottom: 20px; cursor: pointer;" onClick="window.location = 'https://tickleinvest.com/promotion'">
+        <img style="width: 100%" src="<%=image_url 'tickle_mobile.png' %>" >
+      </div>
+      <div class="hidden-sm" style="margin-bottom: 20px; cursor: pointer;" onClick="window.location = 'https://tickleinvest.com/promotion'">
+        <img style="width: 100%" src="<%=image_url 'tickle_pc.png' %>" >
+      </div>
       <%= yield %>
     </div>
     <div style="text-align:center;">
