@@ -1,0 +1,5 @@
+<%if @average == -1 %>
+<%=@year%>년 <%=@term%>학기에는 <%=params[:prof_nm]%> 교수님 강의가 없습니다
+<% else %>
+<%= @average %>
+<% end %>
